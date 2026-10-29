@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+{% seo %}
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+<link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+{% feed_meta %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="{{ '/' | relative_url }}">HENRY HU<span>Security / AI / Field notes</span></a><nav aria-label="Main navigation"><a href="{{ '/' | relative_url }}">Writing</a><a href="{{ '/about/' | relative_url }}">About</a><a href="{{ '/feed.xml' | relative_url }}">RSS ↗</a></nav></header>
+<main id="main">{{ content }}</main>
+<footer class="site-footer"><span>© {{ site.time | date: '%Y' }} Henry Hu</span><span><a href="https://github.com/ninedter">GitHub ↗</a> · <a href="https://aitbm.org">AITBM ↗</a></span><p>Independent writing. Sources and disclosures accompany each article.</p></footer>
+</body></html>

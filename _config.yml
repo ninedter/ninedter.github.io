@@ -1,0 +1,33 @@
+title: Henry Hu
+description: Field notes on cybersecurity, AI trust, and the systems we build.
+url: "https://ninedter.github.io"
+baseurl: ""
+author: Henry Hu
+lang: en
+timezone: America/Los_Angeles
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - templates
+  - scripts
+  - migration
+  - vendor
+  - node_modules
