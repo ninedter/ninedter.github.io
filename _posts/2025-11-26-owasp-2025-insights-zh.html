@@ -1,0 +1,117 @@
+---
+layout: "post"
+title: "超越清單本身：從 2025 OWASP Top 10 中看見的 5 大關鍵洞察"
+date: "2025-11-26"
+original_url: "https://ninedter.medium.com/%E8%B6%85%E8%B6%8A%E6%B8%85%E5%96%AE%E6%9C%AC%E8%BA%AB-%E5%BE%9E-2025-owasp-top-10-%E4%B8%AD%E7%9C%8B%E8%A6%8B%E7%9A%84-5-%E5%A4%A7%E9%97%9C%E9%8D%B5%E6%B4%9E%E5%AF%9F-4cc5b04b70f8"
+permalink: "/2025/11/26/owasp-2025-insights-zh/"
+description: "OWASP Top 10 是應用程式資安領域的基石，被全球開發者、資安專業人員與組織視為風險優先順序的重要參考文件。隨著 2025 年新版釋出，大家的第一反應通常是：哪些項目新增？哪些移動？哪些被移除？"
+lang: "zh-Hant"
+tags: ["Archive", "Security"]
+---
+{% raw %}
+<figure><img alt="" loading="lazy" src="/assets/images/medium/4a588952b03d10bf2f52.png"/></figure>
+
+<p id="eb80">OWASP Top 10 是應用程式資安領域的基石，被全球開發者、資安專業人員與組織視為風險優先順序的重要參考文件。隨著 2025 年新版釋出，大家的第一反應通常是：哪些項目新增？哪些移動？哪些被移除？</p>
+
+<p id="abfd">但真正的故事並不只在最終排序上 — — 而是隱藏在背後由資料驅動的變化與令人意外的趨勢。</p>
+
+<p id="d548">今年的資料揭露了 Web 應用程式風險演化的精彩敘事：經典弱點逐漸退場、專家直覺挑戰純量化數據、而風險的定義本身也變得更精準且成熟。讓我們跳脫清單本身，深入了解 2025 OWASP Top 10 的五大反直覺洞察。</p>
+
+<h2 id="2f35">洞察一：老牌漏洞的退場 — — Injection 持續緩慢下滑</h2>
+
+<p id="2934">十多年來，「Injection（注入攻擊）」被視為最經典的 Web 弱點，長期占據 OWASP Top 10 的 #1，是應用程式弱點的象徵。</p>
+
+<p id="9aec">然而，它的逐步下滑已成為業界最重要的長期趨勢之一。</p>
+
+<p id="d0f9">在 2025 名單中，Injection 從 2021 年的 A03 掉到 A05，儘管以原始資料計算它本應排在第 4。</p>
+
+<p id="fcf9">這個持續下降是重要的進步指標 — — 顯示多年的開發者教育，加上現代框架內建的防護機制，已為安全生態帶來可量化的正向影響。</p>
+
+<h2 id="278b">洞察二：資料 vs. 社群 — — 對風險的認知差異比以往更大</h2>
+
+<p id="2908">最終的 OWASP Top 10 來自兩個來源的交叉整合：</p>
+
+<ol><li id="f3c6">大規模應用程式掃描的硬數據</li><li id="1e53">資安社群調查所反映的前瞻性風險觀點</li></ol>
+
+<p id="ef0f">今年這兩者的差距比過往更明顯，呈現「目前常見的弱點」與「最令人擔憂的弱點」之間的張力。</p>
+
+<p id="a185">差異最大的例子包括：</p>
+
+<ul><li id="2fda"><strong>Software Supply Chain Failures（軟體供應鏈失敗）</strong></li><li id="eb08">原始資料：第 10 名</li><li id="5a19">社群投票：第 1 名</li><li id="624c"><strong>Logging &amp; Alerting Failures（記錄與警示失敗）</strong></li><li id="ca7d">原始資料：第 11 名（剛好落在榜外）</li><li id="f38d">社群投票：第 3 名</li><li id="9b7e"><strong>Software or Data Integrity Failures（軟體或資料完整性失敗）</strong></li><li id="dd87">原始資料：第 9 名</li><li id="5f9c">社群投票：第 2 名 → 最終列為 A08</li></ul>
+
+<p id="ee75">這種雙重來源的方式證明，Top 10 不只是揭示「今天有什麼弱點」，更是策略工具，結合自動化數據與一線專家的前瞻判斷。</p>
+
+<h2 id="6870">洞察三：流行病學式的思維 — — 不是看「數量」，而是看「散佈率」</h2>
+
+<p id="ad54">Top 10 的一個進階方法論，是從「單純計次」轉向類似流行病學的衡量方式：<strong>Incidence Rate（發生率）</strong>。</p>
+
+<p id="260d">Incidence Rate 衡量的是：</p>
+
+<blockquote><p id="8b96"><em>有至少一個該弱點的應用程式，占全部應用程式的百分比。</em></p></blockquote>
+
+<p id="1d2e">這比計算弱點出現的次數更能反映<strong>風險的廣度</strong>。</p>
+
+<p id="7f09">例如：</p>
+
+<ul><li id="63aa">在 <strong>1000 個不同應用程式中各出現一次</strong> 的弱點</li><li id="6a59">→ 是更具「系統性」的問題</li><li id="86f7">而不是 <strong>在 10 個應用程式中出現 1000 次</strong></li></ul>
+
+<p id="051b">這種方法讓我們看見哪些問題真正具有普遍性。</p>
+
+<h2 id="5fb9">洞察四：越變越同 — — Broken Access Control 依然穩居 #1</h2>
+
+<p id="782a">雖然名單中其他項目變動不少，但有一件事完全沒變：</p>
+
+<p id="5d7f"><strong>Broken Access Control（存取控制破壞）</strong> 延續 2021 的排名，依然位居 #1。</p>
+
+<p id="83d9">這類弱點涉及執行存取政策的失敗，意即：</p>
+
+<blockquote><p id="cc7c"><em>使用者可以做本不該做的事，或存取不該存取的資料。</em></p></blockquote>
+
+<p id="df9b">這項目持續排名第一，是給整個產業的警訊：</p>
+
+<p id="14a4">在我們專注於新型態攻擊與新科技的同時，最基本的安全原則仍然最容易出問題。</p>
+
+<p id="b21f">回到基礎，仍然是最重要的資安原則。</p>
+
+<h2 id="272c">洞察五：新風險版圖 — — Misconfiguration 與 Supply Chain 大幅攀升</h2>
+
+<p id="f9fc">當某些風險下降，新的風險類別迅速填補空缺，強烈反映現代軟體開發的脈動。有些項目明顯移動：</p>
+
+<ul><li id="84f2"><strong>Cryptographic Failures（加密失敗）</strong>：從 #2 → #4</li><li id="d735"><strong>Insecure Design（不安全設計）</strong>：從 #4 → #6</li></ul>
+
+<p id="8675">讓出空間給三個崛起的風險領域：</p>
+
+<h2 id="c62a">1. Security Misconfiguration（安全設定錯誤）</h2>
+
+<p id="5bac">從 2021 的 #5 → 2025 的 #2</p>
+
+<p id="d643">→ 系統越複雜，設定錯誤風險越高。</p>
+
+<h2 id="338f">2. Software Supply Chain Failures（軟體供應鏈失敗）</h2>
+
+<p id="2c3b">從 #6 → #3</p>
+
+<p id="a174">→ 反映全球對第三方套件、依賴與供應鏈攻擊的高度關注。</p>
+
+<h2 id="a6c4">3. 新面孔：Mishandling of Exceptional Conditions（例外情況處理不當）</h2>
+
+<p id="855d">全新進榜，排在 #10，取代了 2021 的 SSRF。</p>
+
+<p id="1c56">→ 顯示應用程式需要更高韌性來處理不可預期的異常狀態。</p>
+
+<p id="6191">這些變化直接映射現代 DevOps 與雲環境下的開發方式：</p>
+
+<p id="4b5c">Infrastructure-as-Code、容器編排、龐大的開源依賴，使得一次設定錯誤或一個第三方漏洞，可能造成災難性後果。</p>
+
+<h2 id="be57">結語：這不只是地圖，更是指南針</h2>
+
+<p id="8d2a">2025 OWASP Top 10 不是一張靜態清單，而是：</p>
+
+<blockquote><p id="bbf7"><em>反映「現在的弱點」與「未來的威脅」之間的動態平衡。</em></p></blockquote>
+
+<p id="c6d7">理解其方法論、社群與數據間的差異，以及各風險的變動軌跡，能讓我們將 Top 10 不只是當成列出弱點的地圖，而是引導未來資安策略的指南針。</p>
+
+<p id="73c6">在風險版圖快速變化的時代 — —</p>
+
+<p id="d9b9"><strong>這些趨勢中，哪一項會最影響你未來一年的資安優先順序？</strong></p>
+{% endraw %}

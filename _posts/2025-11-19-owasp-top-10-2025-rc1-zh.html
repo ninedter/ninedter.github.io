@@ -1,0 +1,65 @@
+---
+layout: "post"
+title: "OWASP Web Top 10 2025 RC1 中文快速解說"
+date: "2025-11-19"
+original_url: "https://ninedter.medium.com/owasp-web-top-10-2025-rc1-3294d343e680"
+permalink: "/2025/11/19/owasp-top-10-2025-rc1-zh/"
+description: "OWASP Top 10 (或任何 Top 10）並不是用來作為驗收標準或是開標規格。Top 10 的目的為教育及推廣目的為主。安全的標準並不會是只有 Top 10 所列出的範圍，是為了讓大家能夠理解這些安全威脅是需要被注意和被關切的重點。"
+lang: "zh-Hant"
+tags: ["Archive", "Security"]
+---
+{% raw %}
+<figure><img alt="" loading="lazy" src="/assets/images/medium/4a588952b03d10bf2f52.png"/></figure>
+
+<h2 id="5cf7">— — 請注意，請先仔細閱讀下列事項 — —</h2>
+
+<p id="7348"><strong>OWASP Top 10 (或任何 Top 10）並不是用來作為驗收標準或是開標規格。Top 10 的目的為教育及推廣目的為主。安全的標準並不會是只有 Top 10 所列出的範圍，是為了讓大家能夠理解這些安全威脅是需要被注意和被關切的重點。</strong></p>
+
+<p id="822a"><strong>OWASP Top 10 2025</strong> 是該重要列表的第八版，引入了重大變革，重點從單一漏洞轉向導致可利用錯誤的<strong>根本原因</strong>（例如設計和流程缺陷）。此列表的建立綜合了來自多個組織的數據、數百萬筆記錄、數百名調查回應者以及 CVE 紀錄的分析。</p>
+
+<p id="301e">OWASP Top 10 2025 RC1 的重點在於思維模式的轉變，除了程式碼品質外，更強調<strong>設計彈性</strong>、<strong>供應鏈信任</strong>以及<strong>可觀察性</strong>（透過日誌和警示）</p>
+
+<figure><img alt="" loading="lazy" src="/assets/images/medium/04e2c3aceba799605800.png"/></figure>
+
+<p id="b7e5">從 2021 到 2025，Top 10 持續的將 Shift Left Movement 落實，因此很多弱點開始整合到更多的大分類之內。這麼做的另一個原因，也是因為我們希望 Top 10 能更加協助開發人員和資安人員落實及瞭解程式資安的問題範圍，而不是光專注在某一個弱點上面。以下為本次 Top 10 弱點的簡易解說，及簡單的緩解措施。</p>
+
+<p id="e7d7"><strong>A01：權限控制失效 (Broken Access Control)</strong></p>
+
+<ul><li id="cb18"><strong>排名狀態：</strong> 維持在<strong>第 1 名</strong>的統治地位。它是造成嚴重資料外洩的最常見原因。</li><li id="ad52"><strong>風險：</strong> 使用者可以存取超出其授權權限等級的資料或功能。此類別涵蓋了 40 個 Common Weakness Enumerations (CWEs)。</li><li id="ee86"><strong>變更：</strong> 此類別現在<strong>包含 SSRF</strong>（伺服器端請求偽造）。</li><li id="f3a3"><strong>緩解措施：</strong> 執行伺服器端授權檢查；實施「預設拒絕」策略 (deny by default)；記錄高權限操作；增加速率限制。</li></ul>
+
+<h3 id="c6b0"><strong>A02：安全組態錯誤 (Security Misconfiguration)</strong></h3>
+
+<ul><li id="6628"><strong>排名狀態：</strong> 從 2021 年的第 5 位<strong>急劇上升</strong>至第 2 位。影響了 3.00% 的受測應用程式。</li><li id="4bb1"><strong>風險：</strong> 預設憑證、開放的雲端儲存空間、啟用不必要的功能，以及組態（配置）上的失誤導致安全弱點。這是雲端和基礎設施安全中的首要類別，主要由於憑證洩露。</li><li id="4fbe"><strong>緩解措施：</strong> 加固組態設定；自動化執行<strong>基礎設施即程式碼 (IaC)</strong> 的基線檢查；停用偵錯模式和不必要的功能。</li></ul>
+
+<h3 id="f25b"><strong>A03：軟體供應鏈失敗 (Software Supply Chain Failures)</strong></h3>
+
+<ul><li id="6bb4"><strong>排名狀態：</strong> <strong>全新類別</strong>，排名第 3 位。在社群調查中排名最高。</li><li id="0918"><strong>範圍：</strong> 範圍已從以前的「使用含有已知漏洞和過時元件」擴大。涵蓋持續整合/持續部署 (CI/CD) 伺服器、程式碼儲存庫、<strong>工件 (artifacts)</strong>、相依性 (dependencies) 以及開發者工作站。</li><li id="30de"><strong>風險：</strong> 跨越整個軟體相依性生態系統和建構流程中的洩露。</li><li id="cf90"><strong>緩解措施：</strong> 維護已簽章的<strong>軟體物料清單 (SBOM)</strong>；對工件進行簽章；監控 CVE；使用軟體組成分析 (SCA) 工具；對整個供應鏈進行定期加固和稽核。</li></ul>
+
+<h3 id="b167"><strong>A04：加密機制失效 (Cryptographic Failures)</strong></h3>
+
+<ul><li id="23d6"><strong>排名狀態：</strong> 從 2021 年的第 2 位下降至第 4 位。</li><li id="c6b6"><strong>風險：</strong> 缺少加密（以<strong>明文</strong>傳輸或儲存資料），或加密/雜湊演算法使用不當或強度不足。</li><li id="6724"><strong>緩解措施：</strong> 在所有系統上使用 TLS (傳輸層安全協議)；密碼應使用 Argon2/bcrypt 等現代標準；使用 AES-256 等強大演算法；安全地保護密鑰。</li></ul>
+
+<h3 id="c990"><strong>A05：注入 (Injection)</strong></h3>
+
+<ul><li id="4183"><strong>排名狀態：</strong> 從第 3 位下降至第 5 位。</li><li id="172d"><strong>風險：</strong> 攻擊者將惡意程式碼注入本應是資料的地方，誘騙應用程式執行。包括 SQL、NoSQL 和 OS 命令注入。<strong>提示注入</strong>是 LLM 應用程式 OWASP Top 10 中的首要風險。</li><li id="1086"><strong>緩解措施：</strong> 使用參數化查詢 (Parameterized Queries)；實施徹底的輸入<strong>白名單</strong>驗證；使用基於上下文的輸出編碼。</li></ul>
+
+<h3 id="8cee"><strong>A06：不安全設計 (Insecure Design)</strong></h3>
+
+<ul><li id="2d0c"><strong>排名狀態：</strong> 從第 4 位下降至第 6 位。</li><li id="e20b"><strong>風險：</strong> 應用程式架構、安全設計模式或<strong>威脅建模 (Threat Modeling)</strong> 上的缺陷。此風險難以用自動化工具發現。</li><li id="86be"><strong>緩解措施：</strong> 在開發初期進行威脅建模；應用最小權限和<strong>零信任</strong>設計原則。</li></ul>
+
+<h3 id="8a1c"><strong>A07：身份驗證失敗 (Authentication Failures)</strong></h3>
+
+<ul><li id="7ed9"><strong>排名狀態：</strong> 保持在第 7 位。</li><li id="7eeb"><strong>風險：</strong> 身份驗證機制脆弱、會話管理不當，包括<strong>撞庫攻擊 (credential stuffing)</strong> 和暴力破解攻擊。</li><li id="8792"><strong>緩解措施：</strong> 實施安全身份驗證框架；<strong>強制執行多因素驗證 (MFA)</strong>；輪換令牌；防止弱密碼或已洩露密碼。</li></ul>
+
+<h3 id="f7ea"><strong>A08：軟體或資料完整性失敗 (Software or Data Integrity Failures)</strong></h3>
+
+<ul><li id="6efa"><strong>排名狀態：</strong> 保持在第 8 位。</li><li id="824d"><strong>風險：</strong> 系統錯誤地信任資料、關鍵元件或基礎設施，例如使用未簽章的更新或被篡改的工件。</li><li id="1e68"><strong>緩解措施：</strong> 使用<strong>數位簽章</strong>、加密或其他方法來驗證完整性；執行雜湊驗證；保護 CI/CD 權限。</li></ul>
+
+<h3 id="5b6e"><strong>A09：紀錄與警示失敗 (Logging &amp; Alerting Failures)</strong></h3>
+
+<ul><li id="f957"><strong>排名狀態：</strong> 保持在第 9 位。</li><li id="d3ca"><strong>風險：</strong> 缺少、不完整或被忽略的日誌記錄，阻礙了安全事件的檢測和有效應對。</li><li id="fcad"><strong>緩解措施：</strong> 實施<strong>集中式日誌記錄</strong>和 SIEM 警報；記錄所有安全控制事件（成功或失敗）；保護日誌免遭篡改。</li></ul>
+
+<h3 id="14f3"><strong>A10：異常狀況處理不當 (Mishandling of Exceptional Conditions)</strong></h3>
+
+<ul><li id="13e6"><strong>排名狀態：</strong> <strong>全新類別</strong>，排名第 10 位。</li><li id="1138"><strong>風險：</strong> 程式未能阻止、檢測或正確回應異常且不可預測的情況。這包括不當的錯誤處理、邏輯錯誤，以及在異常時進入「<strong>失敗開放 (failing open)</strong>」的場景。</li><li id="82e1"><strong>緩解措施：</strong> 實作「<strong>安全失敗</strong>」(Fail Securely) 邏輯；測試邊緣案例；實施全域例外處理器；發生錯誤時<strong>回滾</strong>任何未完成的交易。</li></ul>
+{% endraw %}

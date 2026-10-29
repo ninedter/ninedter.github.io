@@ -38,4 +38,4 @@ Article prose © Henry Hu. Third-party figures remain owned by their respective 
 
 ## Current state
 
-The Medium inventory contains 13 published posts. One article is imported; `/archive/` links to the remaining 12 originals while full import is pending. See `migration/inventory.json` and `migration/README.md` for completion tracking. The local-AI article remains unpublished and is not included in this repository.
+All 13 published Medium articles are imported. `/archive/` links to their local copies. Images are hosted in `assets/images/medium/`. See `migration/inventory.json` for original-to-GitHub URL mappings and `migration/verification.json` for body and image checks. The local-AI draft remains unpublished and is excluded from this repository.

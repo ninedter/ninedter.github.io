@@ -1,9 +1,9 @@
-# Medium migration status
+# Medium migration completed
 
-1 of 13 published articles imported. See inventory.json for per-article status and original-to-GitHub links.
+13 of 13 published articles imported and reconciled against the authenticated Medium published list. The private draft is excluded. Medium originals remain unchanged.
 
-The Scope Contract article was imported from a complete browser-saved page. All 74 body blocks were compared against the saved source with exact text equality. The article contains one code block and no article images. Original publication and modification timestamps are retained in front matter; the calendar date matches Medium’s displayed June 16 date.
+The first Scope Contract article was imported from browser-saved HTML. The remaining 12 were captured from article DOM in the authenticated browser. Article titles and displayed publication dates are retained; dates may differ from earlier inventory dates because of display timezone.
 
-The remaining 12 articles require browser access or a Medium export. Browser control is not currently exposed to this session. Do not claim those articles have been imported. The archive links to their originals.
+All selected body blocks were compared for exact text equality after removing only Medium image-viewer prompts. Paragraphs, headings, lists, code, figures, captions, and links are preserved. Article images are stored locally. Platform navigation, account controls, subscriptions, tracking, and scripts are excluded.
 
-The unpublished local-AI draft is excluded from this public repository. Medium originals remain intact.
+See inventory.json for URL mappings and verification.json for block counts and image sources.

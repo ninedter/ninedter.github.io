@@ -15,86 +15,134 @@
     {
       "id": "b206899c280b",
       "title": "The Problem Isn’t Rogue AI. It’s Agent Sprawl.",
-      "original_url": "https://medium.com/p/b206899c280b",
-      "status": "pending",
-      "destination_url": null
+      "original_url": "https://ninedter.medium.com/the-problem-isnt-rogue-ai-it-s-agent-sprawl-b206899c280b",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2026/05/28/agent-sprawl/",
+      "displayed_publication_date": "May 28, 2026",
+      "source_sha256": "f93187f6c3e6068bb92be99b64bae50af03d2363c6c4626b2bb34e16ac828a43",
+      "body_blocks": 162,
+      "article_images": 1
     },
     {
       "id": "52ee7f0bd46f",
       "title": "Moltbot 瘋傳背後：深度解析代理式 AI 的技術性安全威脅",
-      "original_url": "https://medium.com/p/52ee7f0bd46f",
-      "status": "pending",
-      "destination_url": null
+      "original_url": "https://ninedter.medium.com/moltbot-%E7%98%8B%E5%82%B3%E8%83%8C%E5%BE%8C-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%E4%BB%A3%E7%90%86%E5%BC%8F-ai-%E7%9A%84%E6%8A%80%E8%A1%93%E6%80%A7%E5%AE%89%E5%85%A8%E5%A8%81%E8%84%85-52ee7f0bd46f",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2026/01/29/moltbot-security-zh/",
+      "displayed_publication_date": "Jan 29, 2026",
+      "source_sha256": "b479e2f772266ac0703a8804af60649b3c090590b82ad8766e735940213a8c23",
+      "body_blocks": 31,
+      "article_images": 0
     },
     {
       "id": "851891034626",
       "title": "超越惡意 Prompts：AI 系統被 Hack 的 4 種「看似簡單」的手法",
-      "original_url": "https://medium.com/p/851891034626",
-      "status": "pending",
-      "destination_url": null
+      "original_url": "https://ninedter.medium.com/%E8%B6%85%E8%B6%8A%E6%83%A1%E6%84%8F-prompts-ai-%E7%B3%BB%E7%B5%B1%E8%A2%AB-hack-%E7%9A%84-4-%E7%A8%AE-%E7%9C%8B%E4%BC%BC%E7%B0%A1%E5%96%AE-%E7%9A%84%E6%89%8B%E6%B3%95-851891034626",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2025/12/10/beyond-bad-prompts-zh/",
+      "displayed_publication_date": "Dec 10, 2025",
+      "source_sha256": "db826d7936ecaaab615ee16da5223e8448351d24df17ab0160b7c99dddc5b7ff",
+      "body_blocks": 33,
+      "article_images": 0
     },
     {
       "id": "24131836e171",
       "title": "Beyond Bad Prompts: 4 Deceptively Simple Ways AI Systems Are Hacked",
-      "original_url": "https://medium.com/p/24131836e171",
-      "status": "pending",
-      "destination_url": null
+      "original_url": "https://ninedter.medium.com/beyond-bad-prompts-4-deceptively-simple-ways-ai-systems-are-hacked-24131836e171",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2025/12/10/beyond-bad-prompts/",
+      "displayed_publication_date": "Dec 10, 2025",
+      "source_sha256": "a8edec16fd1259d43f761050728be52ea667e3fc8809b22b8ef1093c6c1610ea",
+      "body_blocks": 29,
+      "article_images": 0
     },
     {
       "id": "41b399d23950",
       "title": "My CSPO Study Guide",
-      "original_url": "https://medium.com/p/41b399d23950",
-      "status": "pending",
-      "destination_url": null
+      "original_url": "https://ninedter.medium.com/my-cspo-study-guide-41b399d23950",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2025/12/07/cspo-study-guide/",
+      "displayed_publication_date": "Dec 7, 2025",
+      "source_sha256": "f18d5baf1086e6cd89e259d58bc85ead7c9ca8e63d86f8709cada5c0f5ba850d",
+      "body_blocks": 69,
+      "article_images": 0
     },
     {
       "id": "627f518808db",
       "title": "The AI Arms Race: Is Generative AI the Ultimate Shield or the Perfect Weapon?",
-      "original_url": "https://medium.com/p/627f518808db",
-      "status": "pending",
-      "destination_url": null
+      "original_url": "https://ninedter.medium.com/the-ai-arms-race-is-generative-ai-the-ultimate-shield-or-the-perfect-weapon-627f518808db",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2025/12/06/ai-arms-race/",
+      "displayed_publication_date": "Dec 6, 2025",
+      "source_sha256": "c4b9c56d8a2372be11d3001a352ee5fd2b1614736e5efdd4f746554eacc514e6",
+      "body_blocks": 35,
+      "article_images": 1
     },
     {
       "id": "4cc5b04b70f8",
       "title": "超越清單本身：從 2025 OWASP Top 10 中看見的 5 大關鍵洞察",
-      "original_url": "https://medium.com/p/4cc5b04b70f8",
-      "status": "pending",
-      "destination_url": null
+      "original_url": "https://ninedter.medium.com/%E8%B6%85%E8%B6%8A%E6%B8%85%E5%96%AE%E6%9C%AC%E8%BA%AB-%E5%BE%9E-2025-owasp-top-10-%E4%B8%AD%E7%9C%8B%E8%A6%8B%E7%9A%84-5-%E5%A4%A7%E9%97%9C%E9%8D%B5%E6%B4%9E%E5%AF%9F-4cc5b04b70f8",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2025/11/26/owasp-2025-insights-zh/",
+      "displayed_publication_date": "Nov 26, 2025",
+      "source_sha256": "742f4f28e7330f32bcf931a2580114bd718bad940ab63d6b551849dc92cd2d62",
+      "body_blocks": 53,
+      "article_images": 1
     },
     {
       "id": "f775222f210a",
       "title": "Beyond the List: 5 Critical Insights from the 2025 OWASP Top 10",
-      "original_url": "https://medium.com/p/f775222f210a",
-      "status": "pending",
-      "destination_url": null
+      "original_url": "https://ninedter.medium.com/beyond-the-list-5-critical-insights-from-the-2025-owasp-top-10-f775222f210a",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2025/11/26/owasp-2025-insights/",
+      "displayed_publication_date": "Nov 26, 2025",
+      "source_sha256": "ee291ec7506c8be3b5a42188cb349af529f70df39257091b00617e64321cee3c",
+      "body_blocks": 22,
+      "article_images": 1
     },
     {
       "id": "3294d343e680",
-      "title": "OWASP Web Top 10 2025 RC1",
-      "original_url": "https://medium.com/p/3294d343e680",
-      "status": "pending",
-      "destination_url": null
+      "title": "OWASP Web Top 10 2025 RC1 中文快速解說",
+      "original_url": "https://ninedter.medium.com/owasp-web-top-10-2025-rc1-3294d343e680",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2025/11/19/owasp-top-10-2025-rc1-zh/",
+      "displayed_publication_date": "Nov 19, 2025",
+      "source_sha256": "a5321acf1e470dc4da18f7c5dd5d2206eb10dd3a2e846938c468d1abc364a56a",
+      "body_blocks": 27,
+      "article_images": 2
     },
     {
       "id": "3b43b2bf220",
       "title": "瞭解 MITRE 2020 ATT&CK 端點防衛評估 — 麻瓜版 — Part 3 附屬偵測類別",
-      "original_url": "https://medium.com/p/3b43b2bf220",
-      "status": "pending",
-      "destination_url": null
+      "original_url": "https://ninedter.medium.com/%E7%9E%AD%E8%A7%A3-mitre-2020-att-ck-%E7%AB%AF%E9%BB%9E%E9%98%B2%E8%A1%9B%E8%A9%95%E4%BC%B0-%E9%BA%BB%E7%93%9C%E7%89%88-part-3-%E9%99%84%E5%B1%AC%E5%81%B5%E6%B8%AC%E9%A1%9E%E5%88%A5-3b43b2bf220",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2020/04/27/mitre-2020-part-3/",
+      "displayed_publication_date": "Apr 27, 2020",
+      "source_sha256": "cb07576055f080f3a1f24bbaeda8703707c1082d6a02fd055ffbbad97da54d79",
+      "body_blocks": 36,
+      "article_images": 3
     },
     {
       "id": "2522dea213ff",
       "title": "瞭解 MITRE 2020 ATT&CK 端點防衛評估 — 麻瓜版 — Part 2 主偵測類別",
-      "original_url": "https://medium.com/p/2522dea213ff",
-      "status": "pending",
-      "destination_url": null
+      "original_url": "https://ninedter.medium.com/%E7%9E%AD%E8%A7%A3-mitre-2020-att-ck-%E7%AB%AF%E9%BB%9E%E9%98%B2%E8%A1%9B%E8%A9%95%E4%BC%B0-%E9%BA%BB%E7%93%9C%E7%89%88-part-2-%E4%B8%BB%E5%81%B5%E6%B8%AC%E9%A1%9E%E5%88%A5-2522dea213ff",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2020/04/24/mitre-2020-part-2/",
+      "displayed_publication_date": "Apr 24, 2020",
+      "source_sha256": "a0fb8fae98b2ca8d603397804628955e305292f68913266ced2b3b300481bf38",
+      "body_blocks": 30,
+      "article_images": 1
     },
     {
       "id": "d0df7b14d909",
-      "title": "瞭解 MITRE 2020 ATT&CK 端點防衛評估 — 麻瓜版 — Part 1",
-      "original_url": "https://medium.com/p/d0df7b14d909",
-      "status": "pending",
-      "destination_url": null
+      "title": "瞭解 MITRE 2020 ATT&CK 端點防衛評估 — 麻瓜版 — Part 1 基本介紹",
+      "original_url": "https://ninedter.medium.com/%E7%9E%AD%E8%A7%A3-mitre-2020-att-ck-%E7%AB%AF%E9%BB%9E%E9%98%B2%E8%A1%9B%E8%A9%95%E4%BC%B0-%E9%BA%BB%E7%93%9C%E7%89%88-part-1-d0df7b14d909",
+      "status": "imported",
+      "destination_url": "https://ninedter.github.io/2020/04/22/mitre-2020-part-1/",
+      "displayed_publication_date": "Apr 22, 2020",
+      "source_sha256": "ae69cb51a2379a0fc2d918456e3a81c9d02f14b1b7676c7ee69e2a54e2c4946d",
+      "body_blocks": 20,
+      "article_images": 1
     }
   ]
 }
