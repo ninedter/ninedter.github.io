@@ -38,4 +38,4 @@ Article prose © Henry Hu. Third-party figures remain owned by their respective 
 
 ## Current state
 
-All 13 published Medium articles are imported. `/archive/` links to their local copies. Images are hosted in `assets/images/medium/`. See `migration/inventory.json` for original-to-GitHub URL mappings and `migration/verification.json` for body and image checks. The local-AI draft remains unpublished and is excluded from this repository.
+All 13 published Medium articles are imported. `/archive/` links to their local copies. Images are hosted in `assets/images/medium/`. See `migration/inventory.json` for original-to-GitHub URL mappings and `migration/verification.json` for body and image checks. The new local-AI article is published at `/2026/10/29/local-ai-equal-protection/`, with AITBM analysis, source references, and attributed graphics.
