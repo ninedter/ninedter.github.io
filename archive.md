@@ -7,9 +7,9 @@ permalink: /archive/
 
 # From the archive
 
-My earlier writing on AI, cybersecurity, and product practice, in English and Traditional Chinese. These articles currently open on Medium while I bring the archive here.
+My earlier writing on AI, cybersecurity, and product practice, in English and Traditional Chinese. The archive is moving here. Migrated articles open on this site; the remaining articles open on Medium.
 
-- [The Problem Isn’t Rogue AI. It’s Agent Sprawl. — Part 2: The Scope Contract](https://medium.com/p/d32289e8c4e8)
+- [The Problem Isn’t Rogue AI. It’s Agent Sprawl. — Part 2: The Scope Contract](/2026/06/16/agent-sprawl-scope-contract/)
 - [The Problem Isn’t Rogue AI. It’s Agent Sprawl.](https://medium.com/p/b206899c280b)
 - [Moltbot 瘋傳背後：深度解析代理式 AI 的技術性安全威脅](https://medium.com/p/52ee7f0bd46f)
 - [超越惡意 Prompts：AI 系統被 Hack 的 4 種「看似簡單」的手法](https://medium.com/p/851891034626)

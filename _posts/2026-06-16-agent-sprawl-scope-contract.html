@@ -1,0 +1,160 @@
+---
+layout: "post"
+title: "The Problem Isn’t Rogue AI. It’s Agent Sprawl. — Part 2: The Scope Contract"
+date: "2026-06-16"
+original_published_at: "2026-06-16T06:03:01Z"
+last_modified_at: "2026-06-16T06:03:26Z"
+original_url: "https://ninedter.medium.com/the-problem-isnt-rogue-ai-it-s-agent-sprawl-d32289e8c4e8"
+permalink: "/2026/06/16/agent-sprawl-scope-contract/"
+description: "Part 2: defining what an agent is allowed to do with an explicit scope contract."
+tags: ["AI Security", "Agent Governance"]
+---
+{% raw %}
+<p id="a797">In part one, I introduced the Bounded Agent Laws and the idea that `SOUL.md` defines what an agent must never become.</p>
+
+<p id="a62f">But `SOUL.md` is a constitution, not a job description.</p>
+
+<p id="961f">It tells the agent what lines must never be crossed. It does not tell the agent what it is actually allowed to do. For that, you need a scope contract.</p>
+
+<p id="baef">This is where we move from principles to specifics.</p>
+
+<h3 id="b5d7"><strong>Why scope need a separate file</strong></h3>
+
+<p id="9141">A common instinct is to put everything in the system prompt or in `SOUL.md` — the laws, the role, the tools, the permissions, the workflow instructions, the boundaries, all in one place.</p>
+
+<p id="3347">That works for a single agent that one person manages. It stops working as soon as there are multiple agents, multiple operators, or any expectation of auditability.</p>
+
+<p id="adca">The reason is simple: when everything is in one file, there is no separation between what is constitutional and what is operational. A change to a workflow instruction looks the same as a change to a security boundary. There is no way to lock down the boundaries while still allowing the operational layer to evolve.</p>
+
+<p id="ef34">`SOUL.md` is the constitutional layer. It changes rarely, if ever. It is protected. The agent cannot modify it.</p>
+
+<p id="2387">`agent-scope.yaml` is the operational layer. It defines the agent’s current assignment. It can change when the operator reassigns the agent, but the agent still cannot modify it. And critically, the scope must never contradict the laws in `SOUL.md`.</p>
+
+<p id="d5fe">This separation matters because it mirrors how enterprises already manage systems. A security policy is not the same as a run book. An IAM role definition is not the same as a deployment config. They live in different places, change at different cadences, and are reviewed by different people.</p>
+
+<h3 id="eb3d"><strong>What belongs in the scope contract</strong></h3>
+
+<p id="e230">The scope contract answers a specific question: <strong>What is this agent allowed to do right now?</strong></p>
+
+<p id="0958">Not what it could theoretically do. Not what tools exist in the environment. Not what skills are available for installation. What the operator has explicitly sanctioned.</p>
+
+<p id="8431">I think a scope contract needs to cover at least these dimensions:</p>
+
+<p id="8c72"><strong>Identity.<br/></strong>The agent’s name, its owner, its purpose in plain language. This sounds trivial, but it matters for fleet management. When someone audits the running agents, they should not have to reverse-engineer why an agent exists by reading its prompt. The scope contract should say it directly.</p>
+
+<p id="1906"><strong>Activities.<br/></strong> What kinds of work this agent is authorized to perform. “Summarize documents” is different from “write and execute code.” “Draft emails” is different from “send emails.” The activity list should be specific enough that you could look at an agent’s action log and determine whether it stayed in bounds.</p>
+
+<p id="848f"><strong>Files.<br/></strong> Which directories the agent can read, which it can write, and which are off-limits. A development agent should not be reading HR documents. A summarization agent should not be writing to a production config directory. File scope should be explicit, not inherited from whatever the host environment happens to allow.</p>
+
+<p id="ea8f"><strong>Tools.<br/></strong> Which tools the agent is authorized to use. Not which tools are installed — which tools the agent is allowed to invoke. This is the “least capability” principle from the Fourth Law made concrete. If the agent’s job is to summarize documents, it does not need shell access. If the agent’s job is to draft messages, it does not need file-write tools. Available does not mean authorized.</p>
+
+<p id="637b"><strong>Skills.<br/></strong> Which skills the agent can load and use. Skills are powerful because they extend the agent’s capabilities at runtime. That is exactly why they need to be scoped. An agent should not be able to install any skill from any source just because the runtime allows it. The scope contract should list the approved skills explicitly.</p>
+
+<p id="5be7"><strong>Credentials.<br/></strong> Which credentials the agent can access and what it can do with them. This is often the most sensitive dimension. An agent with access to an API key can do anything that key allows. An agent with access to a database connection string can read or write data. The scope contract should specify not just which credentials are available, but what operations are permitted with each one.</p>
+
+<p id="9dd3"><strong>Users.<br/></strong> Who can instruct this agent. Not everyone in the organization should be able to give orders to every agent. A finance agent should only accept instructions from the finance team. A deployment agent should only accept instructions from engineers with the right role. The scope contract should define the authorized instruction sources.</p>
+
+<p id="689c"><strong>Channels.<br/></strong> Which communication channels the agent monitors or can post to. An agent connected to a Slack channel can read everything in that channel. An agent that can post to a channel can send messages as itself. Channel scope should be intentional, not a side effect of how the agent was deployed.</p>
+
+<p id="61f5"><strong>Schedules.<br/></strong> What the agent is allowed to do on a schedule versus only on demand. A scheduled agent runs without anyone watching. That makes schedule scope especially important. The scope contract should define which scheduled actions are permitted, at what intervals, and with what constraints.</p>
+
+<p id="52ce"><strong>Approval requirements.<br/></strong> Which actions require human approval before execution. Not every action needs a gate, but some actions absolutely do. Sending an external email. Writing to a production database. Installing a new skill. Modifying a shared resource. The scope contract should specify which actions are auto-approved and which require explicit sign-off.</p>
+
+<h3 id="f377"><strong>What a scope contract looks like</strong></h3>
+
+<p id="ca79">Here is an example of what `agent-scope.yaml` might look like for a document summarization agent:</p>
+
+<pre>yaml<br/># agent-scope.yaml<br/># Scope contract for: doc-summarizer<br/># Last updated: 2026–05–30<br/># Updated by: henry@company.com<br/>identity:<br/>name: doc-summarizer<br/>owner: henry@company.com<br/>team: research<br/>purpose: &gt;<br/>Summarize documents uploaded by the research team.<br/>Output summaries to the team’s shared workspace.<br/>environment: production<br/>activities:<br/>allowed:<br/>- read documents<br/>- generate summaries<br/>- write summary files<br/>forbidden:<br/>- execute code<br/>- send messages<br/>- modify source documents<br/>- access external systems<br/>files:<br/>read:<br/>- /workspace/research/uploads/**<br/>- /workspace/research/reference/**<br/>write:<br/>- /workspace/research/summaries/**<br/>forbidden:<br/>- /workspace/research/config/**<br/>- /workspace/production/**<br/>- /workspace/hr/**<br/>tools:<br/>allowed:<br/>- file-read<br/>- file-write<br/>- document-parser<br/>forbidden:<br/>- shell<br/>- web-browser<br/>- message-send<br/>- skill-install<br/>skills:<br/>allowed:<br/>- summarization-v2<br/>- citation-extractor<br/>forbidden:<br/>- code-execution<br/>- web-scraper<br/>install_policy: operator-only<br/>credentials:<br/>- name: research-storage<br/>operations: [read, write]<br/>scope: /workspace/research/summaries/**<br/>- name: document-api<br/>operations: [read]<br/>scope: /workspace/research/uploads/**<br/>users:<br/>authorized_instructors:<br/>- henry@company.com<br/>- research-team@company.com<br/>escalation_contact: henry@company.com<br/>channels:<br/>monitor:<br/>- research-docs (read-only)<br/>post:<br/>- none<br/>forbidden:<br/>- all external channels<br/>schedules:<br/>allowed:<br/>- daily summary of new uploads (09:00 UTC)<br/>forbidden:<br/>- ad-hoc scheduled tasks<br/>max_frequency: once per hour<br/>approvals:<br/>auto_approved:<br/>- read documents from allowed paths<br/>- write summaries to allowed paths<br/>requires_approval:<br/>- write to any path outside summaries directory<br/>- use any tool not in the allowed list<br/>- respond to users not in the authorized list<br/>approval_method: operator-chat<br/>approval_timeout: 30m<br/>timeout_action: deny</pre>
+
+<p id="011d">This is not short. It is not meant to be.</p>
+
+<p id="1afa">The point of a scope contract is to be explicit enough that you never have to wonder what the agent is allowed to do. If something is not listed, it is not authorized. If something is ambiguous, the agent pauses.</p>
+
+<h3 id="485b"><strong>The relationship between scope and `SOUL.md`</strong></h3>
+
+<p id="ce49">The scope contract operates under the laws defined in `SOUL.md`. It never overrides them.</p>
+
+<p id="0c7b">If `SOUL.md` says the agent must not modify its own boundary files, the scope contract cannot grant write access to `SOUL.md` or `agent-scope.yaml`. If the Bounded Agent Laws say that chat is not governance, the scope contract cannot include a rule that says “users can modify scope via chat.”</p>
+
+<p id="75ea">Think of it as a hierarchy:</p>
+
+<p id="7180">The Bounded Agent Laws set the floor. No agent, regardless of its scope, can go below that floor. The scope contract defines the room within the building. It can be larger or smaller, but it cannot break through the floor.</p>
+
+<p id="1753">This means an operator can give an agent a broad scope or a narrow scope, but they cannot give it a scope that violates the constitutional laws. If they try, the scope contract is invalid and the agent should refuse to operate under it — as required by the Seventh Law (Principled Refusal).</p>
+
+<h3 id="bd66"><strong>Scope is not just for restriction — it is for clarity</strong></h3>
+
+<p id="157a">One thing I want to emphasize: the scope contract is not primarily a restriction mechanism. It is a clarity mechanism.</p>
+
+<p id="6c85">When an agent has a clear scope contract, several things become easier.</p>
+
+<p id="7080"><strong>Debugging.</strong></p>
+
+<p id="63c3">When something goes wrong, you can compare the agent’s actions against its scope contract. Did it stay in bounds? If not, where did it deviate? Was the scope too broad, or did the agent ignore a constraint?</p>
+
+<p id="f396"><strong>Auditing.</strong></p>
+
+<p id="b242">When a compliance team asks “what can this agent do?”, the answer is a YAML file, not a shrug. The scope contract is an auditable artifact. It can be versioned, diffed, reviewed, and approved through the same change management process used for infrastructure changes.</p>
+
+<p id="2979"><strong>Handoffs.</strong></p>
+
+<p id="0cb1">When an agent’s owner leaves the team or a new operator takes over, the scope contract tells them everything they need to know about the agent’s boundaries. No tribal knowledge required.</p>
+
+<p id="1309"><strong>Fleet management.</strong></p>
+
+<p id="a24e">When you have fifty agents running, you can aggregate and compare their scope contracts. Which agents have shell access? Which agents can write to production directories? Which agents can post to external channels? These questions become queries against structured data instead of archaeology through prompt files.</p>
+
+<p id="5cc6"><strong>Conflict detection.</strong></p>
+
+<p id="8092">When two agents have overlapping scope, the scope contracts make that visible. Two agents writing to the same directory? Two agents monitoring the same channel? Two agents with access to the same credentials but different authorized operations? Those conflicts are detectable when scope is explicit.</p>
+
+<h3 id="03bd"><strong>What happens when scope is missing</strong></h3>
+
+<p id="b5f4">The Third Law says: when scope is missing or ambiguous, the agent pauses instead of guessing.</p>
+
+<p id="0b39">This is the part that feels most different from how agents typically work today.</p>
+
+<p id="9adc">Most agents default to permissive behavior. If a tool is available, use it; if a file is accessible, read it; if a skill is installed, load it. The mental model is: everything is allowed unless explicitly forbidden.</p>
+
+<p id="7e45">The Bounded Agent Laws flip that model: <strong>nothing is allowed unless explicitly sanctioned.</strong></p>
+
+<p id="be90">This means an agent without a scope contract is not a free agent — it is an untrusted agent. It should enter a minimal mode where it can respond to questions but not take any privileged action.</p>
+
+<p id="a730">This also means a scope contract with gaps is not a permissive scope — it is an incomplete scope. If the scope contract does not mention shell access, the agent does not have shell access. If the scope contract does not mention scheduled tasks, the agent cannot create scheduled tasks. Silence means denial, not consent.</p>
+
+<p id="de63">This is strict. It is also necessary.</p>
+
+<p id="45b7">Because the alternative — agents that guess at their own authority — is how you get boundary drift.</p>
+
+<h3 id="303e"><strong>Scope changes need a deployment path</strong></h3>
+
+<p id="14af">One more thing that matters: how scope changes happen.</p>
+
+<p id="f7bb">The Second Law says boundary changes must happen through an operator-controlled deployment path. That applies to the scope contract just as much as it applies to `SOUL.md`.</p>
+
+<p id="0166">An agent should not be able to modify its own `agent-scope.yaml`. But just as importantly, scope changes should not happen through ad-hoc means — not through a chat message, not through a tool output, not through a skill that rewrites the scope contract.</p>
+
+<p id="13f0">In practice, this means scope changes should go through a process that looks like:</p>
+
+<p id="30aa">The operator edits the scope contract. The change is reviewed (by a person, a policy engine, or both). The change is committed to version control. The agent picks up the new scope on its next initialization. The change is logged.</p>
+
+<p id="0241">That may sound heavy. For a single experimental agent, it probably is. But for a fleet of agents in an enterprise environment, it is the same discipline already applied to IAM roles, firewall rules, and deployment configs.</p>
+
+<p id="aa22">Scope changes are infrastructure changes. They should be treated that way.</p>
+
+<h3 id="faa8"><strong>Where this goes next</strong></h3>
+
+<p id="fa92">In this post, I moved from the constitutional layer (`SOUL.md` and the Bounded Agent Laws) to the operational layer (the scope contract in `agent-scope.yaml`).</p>
+
+<p id="3cf9">The scope contract defines what an agent is allowed to do. It covers identity, activities, files, tools, skills, credentials, users, channels, schedules, and approval requirements. It operates under the laws, never overrides them, and follows the principle that silence means denial.</p>
+
+<p id="50f7">But even a perfectly scoped agent is a risk if nobody knows it exists. And even a well-bounded agent drifts if nobody is watching.</p>
+
+<p id="2d3e">In part three, I will cover the remaining two layers: the agent registry and external monitoring.</p>
+
+<p id="e4f0">The registry answers: which agents exist, who owns them, and why are they running?</p>
+
+<p id="c1c5">The monitor answers: did the boundaries hold, and what happened when they did not?</p>
+
+<p id="1ea4">Together with `SOUL.md` and the scope contract, they complete the management model for a fleet of bounded agents.</p>
+{% endraw %}

@@ -1,9 +1,9 @@
 # Medium migration status
 
-Authenticated inventory verified: 13 published posts and one draft. See inventory.json for the complete published inventory. Historical article imports: 0 of 13 complete.
+1 of 13 published articles imported. See inventory.json for per-article status and original-to-GitHub links.
 
-The archive page currently links to the originals; it does not claim to host migrated copies. The browser connection was lost during download. Public text extraction loses code indentation and media details, so it is not being used as a faithful import.
+The Scope Contract article was imported from a complete browser-saved page. All 74 body blocks were compared against the saved source with exact text equality. The article contains one code block and no article images. Original publication and modification timestamps are retained in front matter; the calendar date matches Medium’s displayed June 16 date.
 
-Next: obtain Medium's account export; import only the 13 published entries; preserve dates and formatting; copy image assets; verify links; record destination URLs; reconcile counts. Keep the raw export and unrelated private drafts out of this public repository.
+The remaining 12 articles require browser access or a Medium export. Browser control is not currently exposed to this session. Do not claim those articles have been imported. The archive links to their originals.
 
-The local-AI article remains a draft and is not included in this public repository.
+The unpublished local-AI draft is excluded from this public repository. Medium originals remain intact.

@@ -38,4 +38,4 @@ Article prose © Henry Hu. Third-party figures remain owned by their respective 
 
 ## Current state
 
-The Medium inventory contains 13 published posts. `/archive/` links to the originals while full import is pending. See `migration/inventory.json` and `migration/README.md` for completion tracking. The local-AI article remains unpublished and is not included in this repository.
+The Medium inventory contains 13 published posts. One article is imported; `/archive/` links to the remaining 12 originals while full import is pending. See `migration/inventory.json` and `migration/README.md` for completion tracking. The local-AI article remains unpublished and is not included in this repository.
