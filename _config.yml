@@ -31,3 +31,6 @@ exclude:
   - migration
   - vendor
   - node_modules
+
+# GA4 public measurement ID (not a credential).
+google_analytics: "G-PMB8PT59QS"

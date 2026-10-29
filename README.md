@@ -2,7 +2,7 @@
 
 Live site: https://ninedter.github.io
 
-A custom, responsive Jekyll blog hosted on GitHub Pages. No tracking scripts, external fonts, or CMS subscription. Includes article search, RSS, sitemap, canonical metadata, and an accessible mobile layout.
+A custom, responsive Jekyll blog hosted on GitHub Pages. Optional, consent-based Google Analytics 4; no external fonts or CMS subscription. Includes article search, RSS, sitemap, canonical metadata, and an accessible mobile layout.
 
 ## Publish a post
 
@@ -39,3 +39,13 @@ Article prose © Henry Hu. Third-party figures remain owned by their respective 
 ## Current state
 
 All 13 published Medium articles are imported. `/archive/` links to their local copies. Images are hosted in `assets/images/medium/`. See `migration/inventory.json` for original-to-GitHub URL mappings and `migration/verification.json` for body and image checks. The new local-AI article is published at `/2026/10/29/local-ai-equal-protection/`, with AITBM analysis, source references, and attributed graphics.
+
+## Google Analytics
+
+Property: **Henry Hu Blog** (`561533474`). Web stream: `16232013708`.
+Public measurement ID: `G-PMB8PT59QS`, configured in `_config.yml`.
+[Open reports](https://analytics.google.com/analytics/web/#/a398973666p561533474/reports/intelligenthome).
+
+The production-only include loads analytics on ninedter.github.io after a reader opts in. Local previews do not collect visits. All pages and future posts inherit the include. Readers can revise their choice at `/privacy/`. Ads and Google signals are disabled; automatic search/form collection is disabled in the web stream. Reports therefore cover consenting visitors only and may take 24–48 hours to populate. Use Realtime for an initial check.
+
+If changing domains, update the hostname guard in `assets/js/analytics.js`, cookie domain, property stream URL, and `_config.yml`. Never add a Measurement Protocol API secret to this public repository.
